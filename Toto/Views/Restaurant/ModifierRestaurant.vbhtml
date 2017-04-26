@@ -13,7 +13,6 @@ End Code
 </head>
 <body>
     <h1> Modification </h1>
-    <h2> Pour test Git</h2>
     @Code
         Using Html.BeginForm()
     End Code         
