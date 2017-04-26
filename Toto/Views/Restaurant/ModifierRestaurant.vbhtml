@@ -12,6 +12,7 @@ End Code
     <title>ModifierRestaurant</title>
 </head>
 <body>
+    <h1> Modification </h1>
     @Code
         Using Html.BeginForm()
     End Code         
