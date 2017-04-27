@@ -28,8 +28,7 @@ Namespace Controllers
         <HttpPost>
         Function ModifierRestaurant(resto As Resto) As ActionResult
 
-            If String.IsNullOrWhiteSpace(resto.Nom) Then
-                ViewBag.MessageErreur = "Le nom du resto doit être rempli"
+            If Not ModelState.IsValid Then
                 Return View(resto)
             End If
 

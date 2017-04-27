@@ -16,3 +16,20 @@ textarea {
     max-width: 280px;
 }
 
+.field-validation-error {
+    color: red;
+}
+
+.validation-summary-errors {
+    color: red;
+    font-weight: bold
+}
+
+.input-validation-error {
+    border: 2px solid red;
+    background-color: #ffeeee
+}
+
+input[type="checkbox"].input-validation-error {
+    outline: 2px solid #ffcccc;
+}

@@ -8,6 +8,7 @@ End Code
 
 <html>
 <head>
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width" />
     <title>ModifierRestaurant</title>
 </head>
@@ -22,7 +23,7 @@ End Code
         <div>
             @Html.LabelFor(Function(model) model.Nom)
             @Html.TextBoxFor(Function(model) model.Nom)
-            <span style="color:red ">@ViewBag.MessageErreur</span>
+            @Html.ValidationMessageFor(Function(model) model.Nom)
         </div>
         <div>
             @Html.LabelFor(Function(model) model.Telephone)

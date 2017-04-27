@@ -6,8 +6,10 @@ Imports System.ComponentModel.DataAnnotations.Schema
 Public Class Resto
 
     Private _Id As Integer
-    <Required(ErrorMessage:="Un nom de restaurant est demandé")>
+
+
     Private _Nom As String
+
     <Display(Name:="Téléphone")>
     Private _Telephone As String
 
@@ -24,6 +26,7 @@ Public Class Resto
         End Set
     End Property
 
+    <Required(ErrorMessage:="Un nom de restaurant est demandé")>
     Public Property Nom As String
         Get
             Return _Nom
