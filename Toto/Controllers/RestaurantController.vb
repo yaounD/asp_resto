@@ -27,6 +27,12 @@ Namespace Controllers
 
         <HttpPost>
         Function ModifierRestaurant(resto As Resto) As ActionResult
+
+            If Not ModelState.IsValid Then
+                ViewBag.MessageErreur = ModelState("Nom").Errors(0).ErrorMessage
+                Return View(resto)
+            End If
+
             Using dal As IDal = New Dal
                 dal.ModifierRestaurant(resto.Id, resto.Nom, resto.Telephone)
                 Return RedirectToAction("Index")

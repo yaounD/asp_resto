@@ -25,7 +25,7 @@ End Code
         <tr>
             <td>@r.Nom</td>
             <td>@r.Telephone</td>
-           <td>@Html.ActionLink("Modifier" & r.Nom, "ModifierRestaurant", New With {.id = r.Id})</td>
+           <td>@Html.ActionLink("Modifier " & r.Nom, "ModifierRestaurant", New With {.id = r.Id})</td>
         </tr>
         @Code
             Next
