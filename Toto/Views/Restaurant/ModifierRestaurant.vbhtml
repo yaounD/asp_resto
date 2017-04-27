@@ -22,6 +22,7 @@ End Code
         <div>
             @Html.LabelFor(Function(model) model.Nom)
             @Html.TextBoxFor(Function(model) model.Nom)
+            <span style="color:red ">@ViewBag.MessageErreur</span>
         </div>
         <div>
             @Html.LabelFor(Function(model) model.Telephone)

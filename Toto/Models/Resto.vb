@@ -6,7 +6,7 @@ Imports System.ComponentModel.DataAnnotations.Schema
 Public Class Resto
 
     Private _Id As Integer
-    <Required()>
+    <Required(ErrorMessage:="Un nom de restaurant est demandé")>
     Private _Nom As String
     <Display(Name:="Téléphone")>
     Private _Telephone As String

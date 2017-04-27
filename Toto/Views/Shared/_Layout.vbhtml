@@ -19,6 +19,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Toto", "Index", "Home", New With { .area = "" }, New With { .class = "navbar-brand" })
+                @Html.ActionLink("Restaurant", "Index", "Restaurant", New With {.area = ""}, New With {.class = "navbar-brand"})
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
