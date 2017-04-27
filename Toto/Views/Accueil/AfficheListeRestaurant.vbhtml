@@ -6,7 +6,7 @@
     <tr>
         <th>Nom</th>
         <th>Téléphone</th>
-        
+
     </tr>
     @Code
         For Each r As Resto In Model
@@ -15,8 +15,8 @@
         <td>@r.Nom</td>
         <td>@r.Telephone</td>
     </tr>
-   @Code
-       Next
-   End Code
+    @Code
+        Next
+    End Code
 
 </table>

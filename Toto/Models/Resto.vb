@@ -5,44 +5,21 @@ Imports System.ComponentModel.DataAnnotations.Schema
 <Table("Restos")>
 Public Class Resto
 
-    Private _Id As Integer
+    Public Property Id() As Integer
 
+    '<StringLength(80)>
+    <Required(ErrorMessage:="Un nom de restaurant est demandé")>
+    Public Property Nom() As String
 
-    Private _Nom As String
-
+    '<RegularExpression("^0[0-9]{9}$")>
     <Display(Name:="Téléphone")>
-    Private _Telephone As String
+    Public Property Telephone() As String
 
     Sub New()
     End Sub
 
 
-    Public Property Id As Integer
-        Get
-            Return _Id
-        End Get
-        Set(value As Integer)
-            _Id = value
-        End Set
-    End Property
 
-    <Required(ErrorMessage:="Un nom de restaurant est demandé")>
-    Public Property Nom As String
-        Get
-            Return _Nom
-        End Get
-        Set(value As String)
-            _Nom = value
-        End Set
-    End Property
 
-    Public Property Telephone As String
-        Get
-            Return _Telephone
-        End Get
-        Set(value As String)
-            _Telephone = value
-        End Set
-    End Property
 
 End Class
