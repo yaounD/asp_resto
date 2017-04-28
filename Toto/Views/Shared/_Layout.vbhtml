@@ -7,7 +7,19 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
-
+    <script type="text/javascript">
+            jQuery.validator.addMethod("verifcontact",
+                function (value, element, params) {
+                    var tel = $("#" + params.parametre1).val();
+                    var email = $("#" + params.parametre2).val();
+                    return tel != '' || email != '';
+                });
+            jQuery.validator.unobtrusive.adapters.add
+                ("verifcontact", ["parametre1", "parametre2"], function (options) {
+                    options.rules["verifcontact"] = options.params;
+                    options.messages["verifcontact"] = options.message;
+                });
+    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -39,5 +51,7 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
 </body>
 </html>

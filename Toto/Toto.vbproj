@@ -145,6 +145,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BddContext.vb" />
+    <Compile Include="Models\AuMoinsUnDesDeuxAttribute.vb" />
     <Compile Include="Models\InitChoixResto.vb" />
     <Compile Include="Models\Resultats.vb" />
     <Compile Include="Models\Dal.vb" />
