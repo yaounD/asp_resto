@@ -20,6 +20,7 @@ End Code
     <div>
         @Html.LabelFor(Function(model) model.Telephone)
         @Html.TextBoxFor(Function(model) model.Telephone)
+        @Html.ValidationMessageFor(Function(model) model.Telephone)
     </div>
     <br />
     <input type="submit" value="Modifier" />

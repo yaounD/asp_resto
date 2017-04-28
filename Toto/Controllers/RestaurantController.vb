@@ -39,5 +39,28 @@ Namespace Controllers
 
         End Function
 
+        Function CreerRestaurant() As ActionResult
+            Return View()
+        End Function
+
+
+        <HttpPost>
+        Function CreerRestaurant(resto As Resto) As ActionResult
+
+            Using dal As IDal = New Dal()
+                If dal.RestaurantExiste(resto.Nom) Then
+                    ModelState.AddModelError("Nom", "Ce restaurant existe déjà")
+                    Return View(resto)
+                End If
+
+                If Not ModelState.IsValid Then
+                    Return View(resto)
+                End If
+                dal.CreerRestaurant(resto.Nom, resto.Telephone)
+                Return RedirectToAction("Index")
+            End Using
+
+        End Function
+
     End Class
 End Namespace

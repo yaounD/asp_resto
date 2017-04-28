@@ -22,17 +22,17 @@ Public Class DalTests
 
     <TestMethod()>
     Public Sub CreerRestaurant_AvecUnNouveauRestaurant_ObtientTousLesRestaurantsRenvoitBienLeRestaurant()
-        Me.dal.CreerRestaurant("La bonne fourchette", "102030405")
+        Me.dal.CreerRestaurant("La bonne fourchette", "0102030405")
         Dim restos As List(Of Resto) = Me.dal.ObtientTousLesRestaurants
         Assert.IsNotNull(restos)
         Assert.AreEqual(1, restos.Count)
         Assert.AreEqual("La bonne fourchette", restos(0).Nom)
-        Assert.AreEqual("102030405", restos(0).Telephone)
+        Assert.AreEqual("0102030405", restos(0).Telephone)
     End Sub
 
     <TestMethod()>
     Public Sub ModifierRestaurant_CreationDUnNouveauRestaurantEtChangementNomEtTelephone_LaModificationEstCorrecteApresRechargement()
-        Me.dal.CreerRestaurant("La bonne fourchette", "102030405")
+        Me.dal.CreerRestaurant("La bonne fourchette", "0102030405")
         Me.dal.ModifierRestaurant(1, "La bonne cuillere", Nothing)
         Dim restos As List(Of Resto) = Me.dal.ObtientTousLesRestaurants
         Assert.IsNotNull(restos)
@@ -43,7 +43,7 @@ Public Class DalTests
 
     <TestMethod()>
     Public Sub RestaurantExiste_AvecCreationDunRestauraunt_RenvoiQuilExiste()
-        Me.dal.CreerRestaurant("La bonne fourchette", "102030405")
+        Me.dal.CreerRestaurant("La bonne fourchette", "0102030405")
         Dim existe As Boolean = Me.dal.RestaurantExiste("La bonne fourchette")
         Assert.IsTrue(existe)
     End Sub
@@ -123,7 +123,7 @@ Public Class DalTests
     Public Sub ADejaVote_UtilisateurAVote_RetourneTrue()
         Dim idSondage As Integer = Me.dal.CreerUnSondage
         Dim idUtilisateur As Integer = Me.dal.AjouterUtilisateur("Nouvel utilisateur", "12345")
-        Me.dal.CreerRestaurant("La bonne fourchette", "102030405")
+        Me.dal.CreerRestaurant("La bonne fourchette", "0102030405")
         Me.dal.AjouterVote(idSondage, 1, idUtilisateur)
         Dim aVote As Boolean = Me.dal.ADejaVote(idSondage, idUtilisateur.ToString)
         Assert.IsTrue(aVote)
@@ -135,10 +135,10 @@ Public Class DalTests
         Dim idUtilisateur1 As Integer = Me.dal.AjouterUtilisateur("Utilisateur1", "12345")
         Dim idUtilisateur2 As Integer = Me.dal.AjouterUtilisateur("Utilisateur2", "12345")
         Dim idUtilisateur3 As Integer = Me.dal.AjouterUtilisateur("Utilisateur3", "12345")
-        Me.dal.CreerRestaurant("Resto piniere", "102030405")
-        Me.dal.CreerRestaurant("Resto pinambour", "102030405")
-        Me.dal.CreerRestaurant("Resto mate", "102030405")
-        Me.dal.CreerRestaurant("Resto ride", "102030405")
+        Me.dal.CreerRestaurant("Resto piniere", "0102030405")
+        Me.dal.CreerRestaurant("Resto pinambour", "0102030405")
+        Me.dal.CreerRestaurant("Resto mate", "0102030405")
+        Me.dal.CreerRestaurant("Resto ride", "0102030405")
         Me.dal.AjouterVote(idSondage, 1, idUtilisateur1)
         Me.dal.AjouterVote(idSondage, 3, idUtilisateur1)
         Me.dal.AjouterVote(idSondage, 4, idUtilisateur1)
@@ -148,13 +148,13 @@ Public Class DalTests
         Dim resultats As List(Of Resultats) = Me.dal.ObtenirLesResultats(idSondage)
         Assert.AreEqual(3, resultats(0).NombreDeVotes)
         Assert.AreEqual("Resto piniere", resultats(0).Nom)
-        Assert.AreEqual("102030405", resultats(0).Telephone)
+        Assert.AreEqual("0102030405", resultats(0).Telephone)
         Assert.AreEqual(2, resultats(1).NombreDeVotes)
         Assert.AreEqual("Resto mate", resultats(1).Nom)
-        Assert.AreEqual("102030405", resultats(1).Telephone)
+        Assert.AreEqual("0102030405", resultats(1).Telephone)
         Assert.AreEqual(1, resultats(2).NombreDeVotes)
         Assert.AreEqual("Resto ride", resultats(2).Nom)
-        Assert.AreEqual("102030405", resultats(2).Telephone)
+        Assert.AreEqual("0102030405", resultats(2).Telephone)
     End Sub
 
     <TestMethod()>
@@ -163,10 +163,10 @@ Public Class DalTests
         Dim idUtilisateur1 As Integer = Me.dal.AjouterUtilisateur("Utilisateur1", "12345")
         Dim idUtilisateur2 As Integer = Me.dal.AjouterUtilisateur("Utilisateur2", "12345")
         Dim idUtilisateur3 As Integer = Me.dal.AjouterUtilisateur("Utilisateur3", "12345")
-        Me.dal.CreerRestaurant("Resto piniere", "102030405")
-        Me.dal.CreerRestaurant("Resto pinambour", "102030405")
-        Me.dal.CreerRestaurant("Resto mate", "102030405")
-        Me.dal.CreerRestaurant("Resto ride", "102030405")
+        Me.dal.CreerRestaurant("Resto piniere", "0102030405")
+        Me.dal.CreerRestaurant("Resto pinambour", "0102030405")
+        Me.dal.CreerRestaurant("Resto mate", "0102030405")
+        Me.dal.CreerRestaurant("Resto ride", "0102030405")
         Me.dal.AjouterVote(idSondage1, 1, idUtilisateur1)
         Me.dal.AjouterVote(idSondage1, 3, idUtilisateur1)
         Me.dal.AjouterVote(idSondage1, 4, idUtilisateur1)
@@ -183,22 +183,22 @@ Public Class DalTests
         Dim resultats2 As List(Of Resultats) = Me.dal.ObtenirLesResultats(idSondage2)
         Assert.AreEqual(3, resultats1(0).NombreDeVotes)
         Assert.AreEqual("Resto piniere", resultats1(0).Nom)
-        Assert.AreEqual("102030405", resultats1(0).Telephone)
+        Assert.AreEqual("0102030405", resultats1(0).Telephone)
         Assert.AreEqual(2, resultats1(1).NombreDeVotes)
         Assert.AreEqual("Resto mate", resultats1(1).Nom)
-        Assert.AreEqual("102030405", resultats1(1).Telephone)
+        Assert.AreEqual("0102030405", resultats1(1).Telephone)
         Assert.AreEqual(1, resultats1(2).NombreDeVotes)
         Assert.AreEqual("Resto ride", resultats1(2).Nom)
-        Assert.AreEqual("102030405", resultats1(2).Telephone)
+        Assert.AreEqual("0102030405", resultats1(2).Telephone)
         Assert.AreEqual(1, resultats2(0).NombreDeVotes)
         Assert.AreEqual("Resto pinambour", resultats2(0).Nom)
-        Assert.AreEqual("102030405", resultats2(0).Telephone)
+        Assert.AreEqual("0102030405", resultats2(0).Telephone)
         Assert.AreEqual(2, resultats2(1).NombreDeVotes)
         Assert.AreEqual("Resto mate", resultats2(1).Nom)
-        Assert.AreEqual("102030405", resultats2(1).Telephone)
+        Assert.AreEqual("0102030405", resultats2(1).Telephone)
         Assert.AreEqual(1, resultats2(2).NombreDeVotes)
         Assert.AreEqual("Resto piniere", resultats2(2).Nom)
-        Assert.AreEqual("102030405", resultats2(2).Telephone)
+        Assert.AreEqual("0102030405", resultats2(2).Telephone)
     End Sub
 End Class
 

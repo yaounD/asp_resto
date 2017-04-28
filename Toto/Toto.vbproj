@@ -206,6 +206,7 @@
     <Content Include="Views\Restaurant\Index.vbhtml" />
     <Content Include="Views\Shared\Erreur.vbhtml" />
     <Content Include="Views\Restaurant\ModifierRestaurant.vbhtml" />
+    <Content Include="Views\Restaurant\CreerRestaurant.vbhtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
