@@ -10,7 +10,6 @@ Imports System.Web.Mvc
         Dim controller As AccueilController = New AccueilController()
         Dim resultat As ViewResult = CType(controller.Index(), ViewResult)
         Assert.AreEqual(String.Empty, resultat.ViewName)
-
     End Sub
 
 End Class
