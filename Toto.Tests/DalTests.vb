@@ -33,12 +33,11 @@ Public Class DalTests
     <TestMethod()>
     Public Sub ModifierRestaurant_CreationDUnNouveauRestaurantEtChangementNomEtTelephone_LaModificationEstCorrecteApresRechargement()
         Me.dal.CreerRestaurant("La bonne fourchette", "0102030405")
-        Me.dal.ModifierRestaurant(1, "La bonne cuillere", Nothing)
+        Me.dal.ModifierRestaurant(1, "La bonne cuillere", "0203040506")
         Dim restos As List(Of Resto) = Me.dal.ObtientTousLesRestaurants
         Assert.IsNotNull(restos)
         Assert.AreEqual(1, restos.Count)
         Assert.AreEqual("La bonne cuillere", restos(0).Nom)
-        Assert.IsNull(restos(0).Telephone)
     End Sub
 
     <TestMethod()>

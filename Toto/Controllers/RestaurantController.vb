@@ -21,7 +21,7 @@ Namespace Controllers
                     Return View(resto)
                 End Using
             Else
-                Return View("Erreur")
+                Return HttpNotFound()
             End If
         End Function
 
@@ -62,5 +62,8 @@ Namespace Controllers
 
         End Function
 
+        Function RetourAccueil(id As String) As ActionResult
+            Return RedirectToRoute(New With {.controller = "Accueil", .action = "Index"})
+        End Function
     End Class
 End Namespace
