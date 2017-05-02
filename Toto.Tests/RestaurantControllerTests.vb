@@ -28,4 +28,20 @@ Imports Toto.Controllers
         End Using
     End Sub
 
+    <TestMethod>
+    Public Sub RestaurantController_ModifierRestaurantAvecRestoInvalideEtBindingDeModele_RenvoiVueParDefaut()
+        Dim controller As New RestaurantController(New DalEnDur())
+        Dim resto As New Resto() With {
+           .Id = 1,
+            .Nom = Nothing,
+            .Telephone = "0102030405"
+        }
+        controller.ValideLeModele(resto)
+
+        Dim resultat As ActionResult = DirectCast(controller.ModifierRestaurant(resto), RedirectToRouteResult)
+
+
+    End Sub
+
+
 End Class

@@ -19,6 +19,23 @@ Namespace Controllers
             Return View(ListeDesRestaurants)
         End Function
 
+        Function CreerRestaurant() As ActionResult
+            Return View()
+        End Function
+
+        <HttpPost>
+        Function CreerRestaurant(resto As Resto) As ActionResult
+            If dal.RestaurantExiste(resto.Nom) Then
+                ModelState.AddModelError("Nom", "Ce restaurant existe déjà")
+                Return View(resto)
+            End If
+            If Not ModelState.IsValid Then
+                Return View(resto)
+            End If
+            dal.CreerRestaurant(resto.Nom, resto.Telephone)
+            Return RedirectToAction("Index")
+        End Function
+
         Function ModifierRestaurant(id As Nullable(Of Integer)) As ActionResult
             If id.HasValue Then
                 Dim resto As Resto = dal.ObtientTousLesRestaurants.FirstOrDefault(Function(r) r.Id = id.Value)
@@ -40,22 +57,8 @@ Namespace Controllers
             Return RedirectToAction("Index")
         End Function
 
-        Function CreerRestaurant() As ActionResult
-            Return View()
-        End Function
 
-        <HttpPost>
-        Function CreerRestaurant(resto As Resto) As ActionResult
-            If dal.RestaurantExiste(resto.Nom) Then
-                ModelState.AddModelError("Nom", "Ce restaurant existe déjà")
-                Return View(resto)
-            End If
-            If Not ModelState.IsValid Then
-                Return View(resto)
-            End If
-            dal.CreerRestaurant(resto.Nom, resto.Telephone)
-            Return RedirectToAction("Index")
-        End Function
+
 
         Function RetourAccueil(id As String) As ActionResult
             Return RedirectToRoute(New With {.controller = "Accueil", .action = "Index"})
