@@ -20,6 +20,15 @@
                     options.messages["verifcontact"] = options.message;
                 });
     </script>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

@@ -36,7 +36,7 @@ Namespace Controllers
             Return RedirectToAction("Index")
         End Function
 
-        Function ModifierRestaurant(id As Nullable(Of Integer)) As ActionResult
+        Function ModifierRestaurant(id As Integer?) As ActionResult
             If id.HasValue Then
                 Dim resto As Resto = dal.ObtientTousLesRestaurants.FirstOrDefault(Function(r) r.Id = id.Value)
                 If resto Is Nothing Then
@@ -56,8 +56,6 @@ Namespace Controllers
             dal.ModifierRestaurant(resto.Id, resto.Nom, resto.Telephone)
             Return RedirectToAction("Index")
         End Function
-
-
 
 
         Function RetourAccueil(id As String) As ActionResult

@@ -11,13 +11,12 @@ Public Class Resto
     <Required(ErrorMessage:="Un nom de restaurant est demandé")>
     Public Property Nom() As String
 
-    '<RegularExpression("^0[0-9]{9}$")>
-    '<Display(Name:="Téléphone")>
+
     '<Required(ErrorMessage:="Veuillez saisir un numéro de téléphone valable")>
-    <AuMoinsUnDesDeux(Parametre1:="Telephone", Parametre2:="Email", ErrorMessage:="Vous devez saisir au moins un moyen de contacter le restaurant")>
+    <Display(Name:="Téléphone")>
+    <RegularExpression("^0[0-9]{9}$", ErrorMessage:="Numéro de telephone incorrect")>
     Public Property Telephone() As String
-    <AuMoinsUnDesDeux(Parametre1:="Telephone", Parametre2:="Email", ErrorMessage:="Vous devez saisir au moins un moyen de contacter le restaurant")>
-    Public Property Email() As String
+
 
     Sub New()
     End Sub

@@ -21,11 +21,6 @@ End Code
         @Html.TextBoxFor(Function(model) model.Telephone)
         @Html.ValidationMessageFor(Function(model) model.Telephone)
     </div>
-    <div>
-        @Html.LabelFor(Function(model) model.Email)
-        @Html.TextBoxFor(Function(model) model.Email)
-        @Html.ValidationMessageFor(Function(model) model.Email)
-    </div>
     <br />
     <input type="submit" value="Modifier" />
 </fieldset>
