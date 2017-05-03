@@ -215,6 +215,7 @@
     <Content Include="Views\Vote\Index.vbhtml" />
     <Content Include="Views\Vote\AfficheResultat.vbhtml" />
     <Content Include="Views\Login\Index.vbhtml" />
+    <Content Include="Views\Login\CreerCompte.vbhtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -24,7 +24,7 @@ Namespace Controllers
                                                                            .NomEtTelephone = String.Format("{0} ({1})", r.Nom, r.Telephone)
                                                                            }).ToList()
                 }
-            If dal.ADejaVote(id, Request.Browser.Browser) Then
+            If dal.ADejaVote(id, HttpContext.User.Identity.Name) Then
                 Return RedirectToAction("AfficheResultat", New With
                                         {
                                         .id = id
@@ -38,7 +38,7 @@ Namespace Controllers
             If Not ModelState.IsValid Then
                 Return View(viewModel)
             End If
-            Dim utilisateur As Utilisateur = dal.ObtenirUtilisateur(Request.Browser.Browser)
+            Dim utilisateur As Utilisateur = dal.ObtenirUtilisateur(HttpContext.User.Identity.Name)
             If utilisateur Is Nothing Then
                 Return New HttpUnauthorizedResult()
             End If
@@ -53,7 +53,7 @@ Namespace Controllers
 
         Function AfficheResultat(id As Integer) As ActionResult
 
-            If (Not dal.ADejaVote(id, Request.Browser.Browser)) Then
+            If (Not dal.ADejaVote(id, HttpContext.User.Identity.Name)) Then
 
                 Return RedirectToAction("Index", New With {.id = id})
             End If
