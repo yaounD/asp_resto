@@ -21,8 +21,6 @@ End Code
 
     </ul>*@
 
-<h2>Index</h2>
-
 <p> Prêts à choisir un restaurant ?</p>
 @Code
     Html.BeginForm()

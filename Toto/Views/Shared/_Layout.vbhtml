@@ -66,6 +66,9 @@
     </div>
 
     <div class="container body-content">
+        <br />
+        <h1>@ViewBag.Title</h1>
+        <br />
         @RenderBody()
         <hr />
         <footer>
