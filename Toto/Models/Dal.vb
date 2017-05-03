@@ -55,11 +55,30 @@ Public Class Dal
 
     Public Function ObtenirUtilisateur(idStr As String) As Utilisateur Implements IDal.ObtenirUtilisateur
 
-        Dim id As Integer
-        If Integer.TryParse(idStr, id) Then
+        Select Case idStr
+            Case "Chrome"
+                Return CreeOuRecupere("Nico", "1234")
+            Case "IE"
+                Return CreeOuRecupere("Jérémie", "1234")
+            Case "Firefox"
+                Return CreeOuRecupere("Delphine", "1234")
+            Case Else
+                Return CreeOuRecupere("Timéo", "1234")
+        End Select
+        'Dim id As Integer
+        'If Integer.TryParse(idStr, id) Then
+        '    Return ObtenirUtilisateur(id)
+        'End If
+        'Return Nothing
+    End Function
+
+    Private Function CreeOuRecupere(nom As String, motDePasse As String) As Utilisateur
+        Dim utilisateur As Utilisateur = Authentifier(nom, motDePasse)
+        If utilisateur Is Nothing Then
+            Dim id As Integer = AjouterUtilisateur(nom, motDePasse)
             Return ObtenirUtilisateur(id)
         End If
-        Return Nothing
+        Return utilisateur
     End Function
 
     Public Function Authentifier(prenom As String, motDePasse As String) As Object Implements IDal.Authentifier
@@ -70,15 +89,26 @@ Public Class Dal
     End Function
 
     Public Function ADejaVote(idSondage As Integer, idUtilisateur As String) As Boolean Implements IDal.ADejaVote
-        Dim id As Integer
-        If Integer.TryParse(idUtilisateur, id) Then
-            Dim soso As Sondage = bdd.Sondages.First(Function(Sondage) Sondage.Id = idSondage)
-            If soso.Votes Is Nothing Then
+
+        Dim utilisateur As Utilisateur = ObtenirUtilisateur(idUtilisateur)
+        If utilisateur IsNot Nothing Then
+            Dim sondage As Sondage = bdd.Sondages.First(Function(s) s.Id = idSondage)
+            If sondage.Votes Is Nothing Then
                 Return False
             End If
-            Return soso.Votes.Any(Function(vote) Not vote.Utilisateur Is Nothing And vote.Utilisateur.Id = id)
+            Return sondage.Votes.Any(Function(v) v.Utilisateur IsNot Nothing AndAlso v.Utilisateur.Id = utilisateur.Id)
         End If
         Return False
+
+        'Dim id As Integer
+        'If Integer.TryParse(idUtilisateur, id) Then
+        '    Dim soso As Sondage = bdd.Sondages.First(Function(Sondage) Sondage.Id = idSondage)
+        '    If soso.Votes Is Nothing Then
+        '        Return False
+        '    End If
+        '    Return soso.Votes.Any(Function(vote) Not vote.Utilisateur Is Nothing And vote.Utilisateur.Id = id)
+        'End If
+        'Return False
     End Function
 
     Public Function CreerUnSondage() As Integer Implements IDal.CreerUnSondage

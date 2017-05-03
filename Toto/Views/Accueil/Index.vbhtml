@@ -1,6 +1,6 @@
 ﻿@ModelType AccueilViewModel
 @Code
-    ViewData("Title") = "Index"
+    ViewData("Title") = "Accueil"
 End Code
 
 @*<ul class="list-group">
@@ -22,6 +22,19 @@ End Code
     </ul>*@
 
 <h2>Index</h2>
+
+<p> Prêts à choisir un restaurant ?</p>
+@Code
+    Html.BeginForm()
+End Code
+<input type="submit" value="Créer un sondage" />
+<br />
+<br />
+<ul>
+    <li>@Html.ActionLink("Ajouter un restaurant", "CreerRestaurant", "Restaurant")</li>
+    <li>@Html.ActionLink("Modifier les restaurants", "Index", "Restaurant")</li>
+</ul>
+
 @*@Html.Partial("Connexion", Model)
     @Html.TextBox("login", Model.Login)
     @Html.DropDownList("RestoChoisi", CType(ViewBag.ListesDesRestos, SelectList))
@@ -34,7 +47,6 @@ End Code
     <input type="submit" value="Envoyer" />
     @Code  Html.EndForm()
     End Code*@
-
 
 
 @*<table style="width:100%;">

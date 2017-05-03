@@ -1,5 +1,7 @@
 ﻿@ModelType List(Of Resto)
-
+@code
+    ViewData("Title") = "Accueil"
+End Code
 
 
 <table style="width:100%;">

@@ -141,6 +141,7 @@
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="Controllers\AccueilController.vb" />
     <Compile Include="Controllers\RestaurantController.vb" />
+    <Compile Include="Controllers\VoteController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,6 +175,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViewModels\AccueilViewModel.vb" />
+    <Compile Include="ViewModels\RestaurantVoteViewModel.vb" />
+    <Compile Include="ViewModels\RestaurantCheckBoxViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -208,6 +211,8 @@
     <Content Include="Views\Shared\Erreur.vbhtml" />
     <Content Include="Views\Restaurant\ModifierRestaurant.vbhtml" />
     <Content Include="Views\Restaurant\CreerRestaurant.vbhtml" />
+    <Content Include="Views\Vote\Index.vbhtml" />
+    <Content Include="Views\Vote\AfficheResultat.vbhtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

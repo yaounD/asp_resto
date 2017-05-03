@@ -2,10 +2,11 @@
 
 @Code
     Layout = "~/Views/Shared/_Layout.vbhtml"
+    ViewData("Title") = "Restaurant"
 End Code
 
 
-<h1>Restaurant</h1>
+
 @Code
     Using Html.BeginForm()
 End Code

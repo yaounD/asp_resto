@@ -1,28 +1,29 @@
-﻿@ModelType List(Of Resto)
+﻿@ModelType List(Of Toto.Resultats)
 
 @Code
     Layout = "~/Views/Shared/_Layout.vbhtml"
-    ViewData("Title") = "Restaurant"
 End Code
 
+<p> Résultat du Sondage :</p>
 
 
 <table style="width:100%;">
     <tr>
         <th>Nom</th>
         <th>Téléphone</th>
-        <th>Modifier</th>
+        <th>Nombre de votes</th>
     </tr>
+
     @Code
-        For Each r As Resto In Model
+        For Each r As Resultats In Model
     End Code
     <tr>
         <td>@r.Nom</td>
         <td>@r.Telephone</td>
-        <td>@Html.ActionLink("Modifier " & r.Nom, "ModifierRestaurant", New With {.id = r.Id})</td>
+        <td>@r.NombreDeVotes</td>
     </tr>
     @Code
         Next
     End Code
-
+ 
 </table>
