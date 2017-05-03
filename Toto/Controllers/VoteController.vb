@@ -1,6 +1,7 @@
 ﻿Imports System.Web.Mvc
 
 Namespace Controllers
+    <Authorize()>
     Public Class VoteController
         Inherits Controller
 

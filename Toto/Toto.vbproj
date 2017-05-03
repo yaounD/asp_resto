@@ -58,7 +58,6 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
@@ -140,6 +139,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="Controllers\AccueilController.vb" />
+    <Compile Include="Controllers\LoginController.vb" />
     <Compile Include="Controllers\RestaurantController.vb" />
     <Compile Include="Controllers\VoteController.vb" />
     <Compile Include="Global.asax.vb">
@@ -175,6 +175,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViewModels\AccueilViewModel.vb" />
+    <Compile Include="ViewModels\UtilisateurViewModel.vb" />
     <Compile Include="ViewModels\RestaurantVoteViewModel.vb" />
     <Compile Include="ViewModels\RestaurantCheckBoxViewModel.vb" />
   </ItemGroup>
@@ -213,6 +214,7 @@
     <Content Include="Views\Restaurant\CreerRestaurant.vbhtml" />
     <Content Include="Views\Vote\Index.vbhtml" />
     <Content Include="Views\Vote\AfficheResultat.vbhtml" />
+    <Content Include="Views\Login\Index.vbhtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
