@@ -53,13 +53,21 @@ Namespace Controllers
 
         Function AfficheResultat(id As Integer) As ActionResult
 
-            If (Not dal.ADejaVote(id, HttpContext.User.Identity.Name)) Then
+            If Not dal.ADejaVote(id, HttpContext.User.Identity.Name) Then
 
                 Return RedirectToAction("Index", New With {.id = id})
             End If
-            Dim resultats As List(Of Resultats) = dal.ObtenirLesResultats(id)
-            Return View(resultats.OrderByDescending(Function(r) r.NombreDeVotes).ToList())
+            'Dim resultats As List(Of Resultats) = dal.ObtenirLesResultats(id)
+            'Return View(resultats.OrderByDescending(Function(r) r.NombreDeVotes).ToList())
+            ViewBag.Id = id
+            Return View()
         End Function
+
+        Public Function AfficheTableau(id As Integer) As ActionResult
+            Dim resultats As List(Of Resultats) = dal.ObtenirLesResultats(id)
+            Return PartialView(resultats.OrderByDescending(Function(r) r.NombreDeVotes).ToList())
+        End Function
+
 
     End Class
 End Namespace
