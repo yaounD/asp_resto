@@ -35,6 +35,10 @@
                     options.rules["verifListe"] = options.params;
                     options.messages["verifListe"] = options.message;
                 });
+            function ErreurAfficheTableau() {
+                $("#tableauResultat").html("Une erreur s'est produite lors de la mise à jour, veuillez réessayer ...");
+            }
+
     </script>
 
      <style type="text/css">
